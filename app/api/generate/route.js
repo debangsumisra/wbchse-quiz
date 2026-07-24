@@ -8,7 +8,7 @@ export async function POST(req) {
   try {
     const { subject } = await req.json();
 
-    const prompt = `Generate 10 multiple-choice questions (MCQs) for West Bengal Class 12 (WBCHSE) Semester 3 for the subject: ${subject}. 
+    const prompt = `Generate 40 multiple-choice questions (MCQs) for West Bengal Class 12 (WBCHSE) Semester 3 for the subject: ${subject}. 
     Ensure questions adhere strictly to the WBCHSE syllabus and use UTF-8 Bengali/Sanskrit characters where applicable.`;
 
     const response = await ai.models.generateContent({
