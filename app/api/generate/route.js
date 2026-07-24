@@ -12,7 +12,7 @@ export async function POST(req) {
     Ensure questions adhere strictly to the WBCHSE syllabus and use UTF-8 Bengali/Sanskrit characters where applicable.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.5-flash-lite",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
