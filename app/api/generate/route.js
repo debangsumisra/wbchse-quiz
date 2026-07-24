@@ -1,5 +1,5 @@
 // app/api/generate/route.js
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
@@ -17,17 +17,17 @@ export async function POST(req) {
       config: {
         responseMimeType: "application/json",
         responseSchema: {
-          type: Type.ARRAY,
+          type: "ARRAY",
           items: {
-            type: Type.OBJECT,
+            type: "OBJECT",
             properties: {
-              id: { type: Type.INTEGER },
-              question: { type: Type.STRING },
+              id: { type: "INTEGER" },
+              question: { type: "STRING" },
               options: { 
-                type: Type.ARRAY, 
-                items: { type: Type.STRING } 
+                type: "ARRAY", 
+                items: { type: "STRING" } 
               },
-              correctAnswer: { type: Type.INTEGER, description: "Index 0 to 3" },
+              correctAnswer: { type: "INTEGER", description: "Index 0 to 3" },
             },
             required: ["id", "question", "options", "correctAnswer"],
           },
@@ -35,9 +35,16 @@ export async function POST(req) {
       },
     });
 
-    const questions = JSON.parse(response.text);
+    // Safely clean potential markdown wrappers before parsing
+    let rawText = response.text ? response.text.trim() : "[]";
+    if (rawText.startsWith("```")) {
+      rawText = rawText.replace(/^```(json)?/i, "").replace(/```$/, "").trim();
+    }
+
+    const questions = JSON.parse(rawText);
     return NextResponse.json({ questions });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Gemini Route Error:", error);
+    return NextResponse.json({ error: error.message, questions: [] }, { status: 500 });
   }
 }
