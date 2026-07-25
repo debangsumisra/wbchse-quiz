@@ -111,9 +111,14 @@ Subject: ${subject}
 Syllabus Details:
 ${syllabus}
 
+Language & Script Requirements:
+* For 'English': All questions, options, and explanations MUST be in English.
+* For 'Sanskrit': All questions, options, and explanations MUST be in Sanskrit (Devanagari script).
+* For ALL OTHER subjects ('Bengali', 'Philosophy', 'Education', 'Computer Science'): All questions, options, and explanations MUST be generated in the Bengali language (UTF-8). For 'Computer Science' (Modern Computer Application), keep Python code blocks, functions, and variable names in English, but write the surrounding question text, options, and explanations in Bengali.
+
 Output Requirement:
-Generate 40 high-quality, syllabus-compliant multiple-choice questions (MCQs).
-Ensure that the options are clear, and use UTF-8 Bengali/Sanskrit characters where applicable.
+Generate 10 high-quality, syllabus-compliant multiple-choice questions (MCQs).
+Ensure that the options are clear.
 Each question must include a short explanation citing the specific topic name/chapter from the new syllabus.`;
 
     const response = await ai.models.generateContent({
