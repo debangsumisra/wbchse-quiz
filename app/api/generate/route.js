@@ -112,7 +112,7 @@ Syllabus Details:
 ${syllabus}
 
 Output Requirement:
-Generate 10 high-quality, syllabus-compliant multiple-choice questions (MCQs).
+Generate 40 high-quality, syllabus-compliant multiple-choice questions (MCQs).
 Ensure that the options are clear, and use UTF-8 Bengali/Sanskrit characters where applicable.
 Each question must include a short explanation citing the specific topic name/chapter from the new syllabus.`;
 
