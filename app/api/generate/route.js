@@ -117,7 +117,7 @@ Language & Script Requirements:
 * For ALL OTHER subjects ('Bengali', 'Philosophy', 'Education', 'Computer Science'): All questions, options, and explanations MUST be generated in the Bengali language (UTF-8). For 'Computer Science' (Modern Computer Application), keep Python code blocks, functions, and variable names in English, but write the surrounding question text, options, and explanations in Bengali.
 
 Output Requirement:
-Generate 10 high-quality, syllabus-compliant multiple-choice questions (MCQs).
+Generate 40 high-quality, syllabus-compliant multiple-choice questions (MCQs).
 Ensure that the options are clear.
 Each question must include a short explanation citing the specific topic name/chapter from the new syllabus.`;
 
